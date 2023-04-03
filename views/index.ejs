@@ -12,6 +12,7 @@
       <h1><span class="emoji">☁️</span> Cloud Week 2</h1>
       <h2>Node Express MongoDB Visitor Count on AWS</h2>
       <div class="divider"></div>
+      <% if (allVisitors && currentVisitor && totalUniqueVisitors && totalVisits) { %>
       <p>(You) Current Visitor IP: <span class="bold"><%= currentVisitor.visitorIp %></span></p>
       <p>
         (You) Current Visitor Number Of Visits:
@@ -34,11 +35,12 @@
               Last Visited:
               <span class="bold"><%= (new Date(visitor.updatedAt)).toUTCString() %></span>
             </div>
-            <div>Total Visits: <span class="bold"><%= visitor.numberOfVisits + 1 %></div>
+            <div>Total Visits: <span class="bold"><%= visitor.numberOfVisits %></div>
           </li>
           <% }); %>
         </ul>
       </div>
+      <% } %>
     </div>
   </body>
 </html>

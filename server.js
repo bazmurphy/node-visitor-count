@@ -27,22 +27,21 @@ const Visitor = mongoose.model('Visitor', visitorSchema);
 
 app.get('/', async (req, res) => {
   try {
-    const allVisitors = await Visitor.find({});
-    // console.log('allVisitors:', allVisitors);
+    const visitorIpFromRequest = req.ip.slice(7);
 
-    const currentVisitor = await Visitor.findOne({ visitorIp: req.ip });
-    // console.log("currentVisitor", currentVisitor);
+    const currentVisitor = await Visitor.findOne({ visitorIp: visitorIpFromRequest });
+    // console.log('currentVisitor', currentVisitor);
 
     if (!currentVisitor) {
       await Visitor.create({
-        visitorIp: req.ip,
+        visitorIp: visitorIpFromRequest,
         numberOfVisits: 1,
       });
     }
 
     if (currentVisitor) {
       await Visitor.findOneAndUpdate(
-        { visitorIp: req.ip },
+        { visitorIp: visitorIpFromRequest },
         { numberOfVisits: currentVisitor.numberOfVisits + 1 },
         { new: true }
       );
@@ -62,11 +61,14 @@ app.get('/', async (req, res) => {
     const totalVisits = totalVisitsAggregated[0].numberOfVisits;
     // console.log('totalVisits', totalVisits);
 
+    const allVisitors = await Visitor.find({});
+    // console.log('allVisitors:', allVisitors);
+
     res.render('index.ejs', {
-      allVisitors: allVisitors,
       currentVisitor: currentVisitor,
       totalUniqueVisitors: totalUniqueVisitors,
       totalVisits: totalVisits,
+      allVisitors: allVisitors,
     });
   } catch (error) {
     res.json(error);
