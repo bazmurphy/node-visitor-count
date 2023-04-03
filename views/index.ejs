@@ -28,7 +28,7 @@
       <div class="most-recent">
         <p>List of all Visitors (Sorted by Most Recent):</p>
         <ul>
-          <% allVisitors.sort((a,b) => a.updatedAt - b.updatedAt).forEach((visitor) => { %>
+          <% allVisitors.sort((a,b) => b.updatedAt - a.updatedAt).forEach((visitor) => { %>
           <li>
             <div>IP: <span class="bold"><%= visitor.visitorIp %></span></div>
             <div>
