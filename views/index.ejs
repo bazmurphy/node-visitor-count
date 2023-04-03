@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cloud Week 2 Visitor Count</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1><span class="emoji">☁️</span> Cloud Week 2</h1>
+      <h2>Node Express MongoDB Visitor Count on AWS</h2>
+      <div class="divider"></div>
+      <p>(You) Current Visitor IP: <span class="bold"><%= currentVisitor.visitorIp %></span></p>
+      <p>
+        (You) Current Visitor Number Of Visits:
+        <span class="bold"><%= currentVisitor.numberOfVisits + 1 %></span>
+      </p>
+      <div class="divider"></div>
+      <p>(Everyone) Total Visits: <span class="bold"><%= totalVisits %></span></p>
+      <p>
+        (Everyone) Total <span class="bold">Unique</span> Visits:
+        <span class="bold"><%= totalUniqueVisitors %></span>
+      </p>
+      <div class="divider"></div>
+      <div class="most-recent">
+        <p>List of all Visitors (Sorted by Most Recent):</p>
+        <ul>
+          <% allVisitors.sort((a,b) => a.updatedAt - b.updatedAt).forEach((visitor) => { %>
+          <li>
+            <div>IP: <span class="bold"><%= visitor.visitorIp %></span></div>
+            <div>
+              Last Visited:
+              <span class="bold"><%= (new Date(visitor.updatedAt)).toUTCString() %></span>
+            </div>
+            <div>Total Visits: <span class="bold"><%= visitor.numberOfVisits + 1 %></div>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
