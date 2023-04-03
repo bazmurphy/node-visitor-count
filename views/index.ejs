@@ -33,7 +33,7 @@
             <div>IP: <span class="bold"><%= visitor.visitorIp %></span></div>
             <div>
               Last Visited:
-              <span class="bold"><%= (new Date(visitor.updatedAt)).toUTCString() %></span>
+              <span class="bold"><%= (new Date(visitor.updatedAt)).toLocaleString() %></span>
             </div>
             <div>Total Visits: <span class="bold"><%= visitor.numberOfVisits %></div>
           </li>
