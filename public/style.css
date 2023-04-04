@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 * {
   box-sizing: border-box;
   margin: 0;
   font-size: 14px;
   font-weight: 400;
-  font-family: 'Inter', system-ui;
+  font-family: system-ui;
 }
 
 body {
@@ -17,7 +15,7 @@ body {
 .container {
   padding: 10px 30px 20px 30px;
   /* background-color: hsl(0, 0%, 90%); */
-  background: linear-gradient(90deg, skyblue 0%, hsl(0, 0%, 95%) 60%);
+  background: linear-gradient(90deg, hsl(200, 75%, 85%), hsl(197, 75%, 90%), hsl(197, 75%, 95%));
   display: grid;
   row-gap: 10px;
 }
@@ -57,7 +55,7 @@ h1 {
   font-size: 1.8rem;
   font-weight: 800;
   color: skyblue;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 0px 1px 3px black;
 }
 
 h2 {
