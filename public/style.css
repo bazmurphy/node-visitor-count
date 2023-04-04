@@ -1,21 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
-  font-size: 16px;
-  font-family: system-ui;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Inter', system-ui;
 }
 
 body {
-  margin-top: 20px;
   display: grid;
   justify-content: center;
   background-color: hsl(0, 0%, 15%);
 }
 
 .container {
-  padding: 10px 40px 20px 40px;
-  background-color: hsl(0, 0%, 90%);
-  border: 1px solid gray;
+  padding: 10px 30px 20px 30px;
+  /* background-color: hsl(0, 0%, 90%); */
+  background: linear-gradient(90deg, skyblue 0%, hsl(0, 0%, 95%) 60%);
   display: grid;
   row-gap: 10px;
 }
@@ -30,7 +32,7 @@ body {
 }
 
 ul {
-  list-style-type: square;
+  /* list-style: none; */
   padding: 0;
   display: grid;
   row-gap: 10px;
@@ -39,6 +41,8 @@ ul {
 li {
   border: 1px solid gray;
   padding: 5px;
+  border-radius: 5px;
+  background: hsla(0, 0%, 95%, 0.55);
 }
 
 .emoji {
@@ -48,6 +52,7 @@ li {
 h1 {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   font-size: 1.8rem;
   font-weight: 800;
@@ -57,9 +62,14 @@ h1 {
 
 h2 {
   font-size: 1.2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
 .bold {
-  font-weight: 700;
+  font-weight: 600;
 }

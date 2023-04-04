@@ -10,22 +10,24 @@
   <body>
     <div class="container">
       <h1><span class="emoji">☁️</span> Cloud Week 2</h1>
-      <h2>Node Express MongoDB Visitor Count on AWS</h2>
+      <h2>Node Express Visitor Count on AWS EC2</h2>
       <div class="divider"></div>
-      <p>(You) Current Visitor IP: <span class="bold"><%= currentVisitor.visitorIp %></span></p>
+      <h3>You :</h3>
+      <p>Current Visitor IP: <span class="bold"><%= currentVisitor.visitorIp %></span></p>
       <p>
-        (You) Current Visitor Number Of Visits:
+        Current Visitor Number Of Visits:
         <span class="bold"><%= currentVisitor.numberOfVisits %></span>
       </p>
       <div class="divider"></div>
-      <p>(Everyone) Total Visits: <span class="bold"><%= totalVisits %></span></p>
+      <h3>Everyone :</h3>
+      <p>Total Visits: <span class="bold"><%= totalVisits %></span></p>
       <p>
-        (Everyone) Total <span class="bold">Unique</span> Visits:
+        Total Unique Visits:
         <span class="bold"><%= totalUniqueVisitors %></span>
       </p>
       <div class="divider"></div>
       <div class="most-recent">
-        <p>List of all Visitors (Sorted by Most Recent):</p>
+        <h3>List of all Visitors (Sorted by Most Recent):</h3>
         <ul>
           <% allVisitors.sort((a,b) => b.updatedAt - a.updatedAt).forEach((visitor) => { %>
           <li>
