@@ -12,7 +12,6 @@
       <h1><span class="emoji">☁️</span> Cloud Week 2</h1>
       <h2>Node Express MongoDB Visitor Count on AWS</h2>
       <div class="divider"></div>
-      <% if (allVisitors && currentVisitor && totalUniqueVisitors && totalVisits) { %>
       <p>(You) Current Visitor IP: <span class="bold"><%= currentVisitor.visitorIp %></span></p>
       <p>
         (You) Current Visitor Number Of Visits:
@@ -40,7 +39,6 @@
           <% }); %>
         </ul>
       </div>
-      <% } %>
     </div>
   </body>
 </html>

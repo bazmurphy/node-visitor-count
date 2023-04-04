@@ -58,20 +58,26 @@ app.get('/', async (req, res) => {
         },
       },
     ]);
-    const totalVisits = totalVisitsAggregated[0].numberOfVisits;
+
+    // const totalVisits = totalVisitsAggregated[0].numberOfVisits;
     // console.log('totalVisits', totalVisits);
 
     const allVisitors = await Visitor.find({});
     // console.log('allVisitors:', allVisitors);
 
-    res.render('index.ejs', {
-      currentVisitor: currentVisitor,
-      totalUniqueVisitors: totalUniqueVisitors,
-      totalVisits: totalVisits,
-      allVisitors: allVisitors,
-    });
+    Promise.all([currentVisitor, totalUniqueVisitors, totalVisitsAggregated, allVisitors]).then(
+      (values) => {
+        // res.json(values);
+        res.render('index.ejs', {
+          currentVisitor: values[0],
+          totalUniqueVisitors: values[1],
+          totalVisits: values[2][0].numberOfVisits,
+          allVisitors: values[3],
+        });
+      }
+    );
   } catch (error) {
-    res.json(error);
+    res.send('Error');
   }
 });
 
