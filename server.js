@@ -67,9 +67,14 @@ app.get('/', async (req, res) => {
 
     Promise.all([currentVisitor, totalUniqueVisitors, totalVisitsAggregated, allVisitors]).then(
       (values) => {
-        // res.json(values);
+        // console.log(values);
         res.render('index.ejs', {
-          currentVisitor: values[0],
+          currentVisitor: currentVisitor
+            ? values[0]
+            : {
+                visitorIp: visitorIpFromRequest,
+                numberOfVisits: 1,
+              },
           totalUniqueVisitors: values[1],
           totalVisits: values[2][0].numberOfVisits,
           allVisitors: values[3],
