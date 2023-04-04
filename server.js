@@ -32,20 +32,23 @@ app.get('/', async (req, res) => {
     const currentVisitor = await Visitor.findOne({ visitorIp: visitorIpFromRequest });
     // console.log('currentVisitor', currentVisitor);
 
-    if (!currentVisitor) {
-      await Visitor.create({
-        visitorIp: visitorIpFromRequest,
-        numberOfVisits: 1,
-      });
-    }
+    let existingVisitor;
+    let newVisitor;
 
     if (currentVisitor) {
-      await Visitor.findOneAndUpdate(
+      existingVisitor = await Visitor.findOneAndUpdate(
         { visitorIp: visitorIpFromRequest },
         { numberOfVisits: currentVisitor.numberOfVisits + 1 },
         { new: true }
       );
+    } else {
+      newVisitor = await Visitor.create({
+        visitorIp: visitorIpFromRequest,
+        numberOfVisits: 1,
+      });
     }
+    // console.log('existingVisitor', existingVisitor);
+    // console.log('newVisitor', newVisitor);
 
     const totalUniqueVisitors = await Visitor.countDocuments({});
     // console.log('totalUniqueVisitors', totalUniqueVisitors);
@@ -65,22 +68,22 @@ app.get('/', async (req, res) => {
     const allVisitors = await Visitor.find({});
     // console.log('allVisitors:', allVisitors);
 
-    Promise.all([currentVisitor, totalUniqueVisitors, totalVisitsAggregated, allVisitors]).then(
-      (values) => {
-        // console.log(values);
-        res.render('index.ejs', {
-          currentVisitor: currentVisitor
-            ? values[0]
-            : {
-                visitorIp: visitorIpFromRequest,
-                numberOfVisits: 1,
-              },
-          totalUniqueVisitors: values[1],
-          totalVisits: values[2][0].numberOfVisits,
-          allVisitors: values[3],
-        });
-      }
-    );
+    Promise.all([
+      currentVisitor,
+      existingVisitor,
+      newVisitor,
+      totalUniqueVisitors,
+      totalVisitsAggregated,
+      allVisitors,
+    ]).then((values) => {
+      // console.log(values);
+      res.render('index.ejs', {
+        currentVisitor: values[0] ? values[1] : values[2],
+        totalUniqueVisitors: values[3],
+        totalVisits: values[4][0].numberOfVisits,
+        allVisitors: values[5],
+      });
+    });
   } catch (error) {
     res.send('Error');
   }
