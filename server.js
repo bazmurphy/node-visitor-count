@@ -68,21 +68,11 @@ app.get('/', async (req, res) => {
     const allVisitors = await Visitor.find({});
     // console.log('allVisitors:', allVisitors);
 
-    Promise.all([
-      currentVisitor,
-      existingVisitor,
-      newVisitor,
-      totalUniqueVisitors,
-      totalVisitsAggregated,
-      allVisitors,
-    ]).then((values) => {
-      // console.log(values);
-      res.render('index.ejs', {
-        currentVisitor: values[0] ? values[1] : values[2],
-        totalUniqueVisitors: values[3],
-        totalVisits: values[4][0].numberOfVisits,
-        allVisitors: values[5],
-      });
+    return res.render('index.ejs', {
+      currentVisitor: currentVisitor ? existingVisitor : newVisitor,
+      totalUniqueVisitors: totalUniqueVisitors,
+      totalVisits: totalVisitsAggregated[0].numberOfVisits,
+      allVisitors: allVisitors,
     });
   } catch (error) {
     res.send('Error');
