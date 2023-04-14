@@ -10,7 +10,7 @@
 
 3. Application and OS Images (Amazon Machine Image)  
 - We will choose Ubuntu  
-![image](https://user-images.githubusercontent.com/61154071/232099095-41193df6-ba7b-49b0-982e-5ed724378e41.png)  
+![image](https://user-images.githubusercontent.com/61154071/232126950-a47f9e19-2f53-4394-87fb-150386351e96.png)
 
 4. Instance type  
 - We will choose t2.micro  
