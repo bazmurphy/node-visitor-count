@@ -72,7 +72,8 @@
 - To make it easier we will move our keypair into the folder we have our projects and keypairs in  
 - ``mv ~/Downloads/cloud-week-two-visitor-count.pem ~/cloud/aws-keypairs/``  
 ![image](https://user-images.githubusercontent.com/61154071/232109921-14d04559-ee95-4bfe-bafc-a9332e224d6f.png)  
-- `chmod 4000 cloud-week-two-visitor-count.pem`  
+- We need to change the `.pem` file to Read Only  
+- `chmod 400 cloud-week-two-visitor-count.pem`  
 ![image](https://user-images.githubusercontent.com/61154071/232110266-240ac501-68b4-4a16-9628-96b979de015a.png)  
 
 12. Connect to EC2 Instance  
