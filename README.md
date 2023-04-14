@@ -1,5 +1,5 @@
 # Cloud Week 2 Node Visitor Count
-## README Instructions:
+## Step by Step Instructions:
 
 1. Launch Instance  
 ![image](https://user-images.githubusercontent.com/61154071/232098516-4e808ad8-96bb-44c1-85a5-70386d31bbde.png)  
