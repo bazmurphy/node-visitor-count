@@ -1,4 +1,4 @@
-# Cloud Week 2 Node Visitor Count
+# Cloud Week 2 - Node Visitor Count
 ## Step by Step Instructions:
 
 1. Launch Instance  
