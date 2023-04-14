@@ -1,6 +1,13 @@
 # Cloud Week 2 - Node Visitor Count
 ## Step by Step Instructions:
 
+0. AWS  
+- This guide assumes you have an AWS Account and have Logged In  
+- In the search bar type ec2  
+- Select the EC2 option that appears  
+![image](https://user-images.githubusercontent.com/61154071/232127782-e78bfb23-8fb4-4401-acbb-89766ac41e91.png)
+
+
 1. Launch Instance
 - First we will create an Instance  
 ![image](https://user-images.githubusercontent.com/61154071/232098516-4e808ad8-96bb-44c1-85a5-70386d31bbde.png)  
