@@ -112,7 +112,7 @@
 `Ctrl+X` (exit)  
 
 18. Run the Application using PM2  
-- Finally we are ready to run our Application  
+- Finally we are ready to run our Application using PM2  
 `pm2 start server.js`  
 ![image](https://user-images.githubusercontent.com/61154071/232119602-6aeaf16e-9c23-40ad-8acb-cbb3567dffa1.png)  
 
